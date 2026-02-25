@@ -412,19 +412,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "project_4_todo_app"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "clap",
- "colored",
- "dirs",
- "serde",
- "serde_json",
- "uuid",
-]
-
-[[package]]
 name = "quote"
 version = "1.0.44"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -546,6 +533,19 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "todo"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "clap",
+ "colored",
+ "dirs",
+ "serde",
+ "serde_json",
+ "uuid",
 ]
 
 [[package]]

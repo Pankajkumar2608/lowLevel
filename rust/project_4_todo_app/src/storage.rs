@@ -1,6 +1,6 @@
 use std::fs;
 use std::path::PathBuf;
-use create::task::Task;
+use crate::task::Task;
 
 pub fn get_data_path() -> PathBuf {
     let mut path = dirs::config_dir().unwrap();
@@ -14,7 +14,7 @@ pub fn get_data_path() -> PathBuf {
 pub fn load_tasks() -> Vec<Task> {
     let path = get_data_path();
     if !path.exists() {
-        return Vec![];
+        return vec![];
     }
     let content = fs::read_to_string(&path).unwrap_or_default();
     serde_json::from_str(&content).unwrap_or_default()

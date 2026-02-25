@@ -1,5 +1,5 @@
 use crate::task::Task;
-use crate::storage::{load_tasks, save_tasks};
+use crate::storage::{load_tasks, save_task};
 use uuid::Uuid;
 use chrono::Utc;
 
@@ -11,6 +11,7 @@ impl TodoApp {
     pub fn new() -> Self {
         Self {
             tasks: load_tasks(),
+
         }
     }
 
@@ -25,18 +26,18 @@ impl TodoApp {
         };
 
         self.tasks.push(task);
-        save_tasks(&self.tasks);
+        save_task(&self.tasks);
     }
 
     pub fn complete(&mut self, id: Uuid) {
         if let Some(task) = self.tasks.iter_mut().find(|t| t.id == id) {
             task.completed = true;
-            save_tasks(&self.tasks);
+            save_task(&self.tasks);
         }
     }
 
     pub fn delete(&mut self, id: Uuid) {
         self.tasks.retain(|t| t.id != id);
-        save_tasks(&self.tasks);
+        save_task(&self.tasks);
     }
 }
